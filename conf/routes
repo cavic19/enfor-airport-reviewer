@@ -4,5 +4,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index()
+GET     /all/stats                           org.enfor.controllers.ReviewStatisticController.getStatisticsSummary
+GET     /:airport/stats                           org.enfor.controllers.ReviewStatisticController.getStatistic(airport)
+GET     /:airport/reviews                           org.enfor.controllers.ReviewController.getOrderedReviews(airport)
 

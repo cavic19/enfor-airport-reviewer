@@ -1,6 +1,7 @@
 package org.enfor.models
 
 import org.joda.time.DateTime
+import play.api.libs.json.{Json, OFormat}
 
 case class Review(title: String,
                   content: String,
@@ -8,9 +9,12 @@ case class Review(title: String,
                   airport: Airport,
                   rating: Rating,
                   date: DateTime,
-                  recommends: Boolean,
+                  recommends: Option[Boolean],
                   experience: Experience
                  )
 
+object Review {
+  implicit val reviewsFormatter: OFormat[List[Review]] = Json.format[List[Review]]
+}
 
 
